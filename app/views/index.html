@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+	<div="grid-row section">
+		<div class="column-full">
+			<div class="sign-out">
+				<a href="/profile" class="user-name"> {{user}}</a>|
+				<a href="/logout">Sign out</a></li>
+			</div>
+		</div>
+	</div>
+
+	<h1 class="heading-large"> My Learning Portal</h1>
+
+	<div class="grid-row section">
+		<div class="column-third">
+			<h3 class="heading-medium" id="mandatory-learning">Manadtory Learning</h3>
+			<div class="data">
+					<span class="data-item bold-xxlarge">24%</span>
+					<span class="data-item bold-xsmall">Complete</span>
+			</div>
+		</div>
+
+		<div class="column-third">
+			<h3 class="heading-medium" id="courses-completed">Courses Completed</h3>
+			<div class="data">
+				<span class="data-item bold-xxlarge">5</span>
+			</div>
+		</div>
+
+		<div class="column-third">
+			<h3 class="heading-medium" id="courses-progress">Courses in Progress</h3>
+			
+			<ul class="list">
+					<li><a href="#">Course 1 </a></li>
+					<li><a href="#">Course 2</a></li>
+					<li><a href="#">Course 3</a></li>
+				</ul>
+		</div>
+
+		<div class="column-full">
+			<a class="button button-start" href="#" role="button">Go to my Learning Plan</a>
+		</div>
+
+		<div class="column-full">
+			<h3 class="heading-medium" id="recommended-learning">Recommended Learning</h3>
+			<table>
+				<thead>
+					<tr>
+						<th scope="col">Course Title</th>
+						<th scope="col">Type</th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">January</th>
+						<th scope="row">Test type</th>
+						<td><a class="button" href="#" role="button">Add to Learning Plan</a></td>
+					</tr>
+					<tr>
+						<th scope="row">February</th>
+						<th scope="row">Test type</th>
+						<td><a class="button" href="#" role="button">Add to Learning Plan</a></td>
+					</tr>
+					<tr>
+						<th scope="row">March</th>
+						<th scope="row">Test type</th>
+						<td><a class="button" href="#" role="button">Add to Learning Plan</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+</main>
+
+
+{% endblock %}
+
+
