@@ -23,6 +23,18 @@ var auth = function(req, res, next) {
   }
 };
 
+var getUserCourses = function(user){
+  return config.courses.filter(function(course){
+    return course.user == user && !course.inProgress;
+  })
+}
+
+var getProCourses = function(user){
+  return config.courses.filter(function(course){
+    return course.user == user && course.inProgress;
+  })
+}
+
 router.get('/login', function (req, res) {
   if (!req.query.email) {
     res.render('login');  
@@ -35,7 +47,15 @@ router.get('/login', function (req, res) {
 });
 
 router.get('/', auth, function (req, res) {
-  res.render('index', {user: req.session.data.email})
+  var user = req.session.data.email
+  res.render('index', { user: user, recCourses: getUserCourses(user), proCourses: getProCourses(user)})
+});
+
+router.get('/logout',function(req, res){
+  req.session.destroy(function(err) {
+    res.redirect('/login');
+  })
+ 
 });
 
 module.exports = router

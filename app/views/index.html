@@ -19,7 +19,9 @@
 
 	<h1 class="heading-large"> My Learning Portal</h1>
 
+
 	<div class="grid-row section">
+
 		<div class="column-third">
 			<h3 class="heading-medium" id="mandatory-learning">Manadtory Learning</h3>
 			<div class="data">
@@ -39,9 +41,9 @@
 			<h3 class="heading-medium" id="courses-progress">Courses in Progress</h3>
 			
 			<ul class="list">
-					<li><a href="#">Course 1 </a></li>
-					<li><a href="#">Course 2</a></li>
-					<li><a href="#">Course 3</a></li>
+					{% for course in proCourses%}
+					<li><a href="#">{{course.title}} </a></li>
+					{%endfor%}
 				</ul>
 		</div>
 
@@ -50,35 +52,37 @@
 		</div>
 
 		<div class="column-full">
+			<br>
+		</div>
+	
+		<div class="column-full">
 			<h3 class="heading-medium" id="recommended-learning">Recommended Learning</h3>
 			<table>
 				<thead>
 					<tr>
 						<th scope="col">Course Title</th>
 						<th scope="col">Type</th>
-						<th scope="col"></th>
+						<th scope="col">Duration</th>
+						<th scope="col">Tags</th>
+						<th scope="col">Add to Learning Plan</th>
 					</tr>
 				</thead>
-				<tbody>
-					<tr>
-						<th scope="row">January</th>
-						<th scope="row">Test type</th>
-						<td><a class="button" href="#" role="button">Add to Learning Plan</a></td>
-					</tr>
-					<tr>
-						<th scope="row">February</th>
-						<th scope="row">Test type</th>
-						<td><a class="button" href="#" role="button">Add to Learning Plan</a></td>
-					</tr>
-					<tr>
-						<th scope="row">March</th>
-						<th scope="row">Test type</th>
-						<td><a class="button" href="#" role="button">Add to Learning Plan</a></td>
-					</tr>
-				</tbody>
+				<tbbody>
+					
+					{% for course in recCourses%}
+						<tr>
+							<td> {{course.title}}</td>
+							<td> {{course.type}}</td>
+							<td> {{course.duration}}</td>
+							<td> {{course.tags}}</td>
+							<td> <input class="button" type="submit" value="+"></td>
+						</tr>
+					{%endfor%}
+				</tbbody>
+
 			</table>
 		</div>
-
+		
 </main>
 
 
