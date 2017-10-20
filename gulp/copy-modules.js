@@ -28,3 +28,8 @@ gulp.task('copy-elements-sass', function () {
   .pipe(gulp.dest(config.paths.govukModules + '/govuk-elements-sass/'))
 })
 
+gulp.task('copy-easy-autocomplete', function () {
+  return gulp.src(['easy-autocomplete/easy-autocomplete.min.css', 'easy-autocomplete/jquery.easy-autocomplete.min.js', 'easy-autocomplete/index.js'])
+  .pipe(gulp.dest(config.paths.public))
+})
+
