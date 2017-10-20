@@ -7,9 +7,11 @@
 var gulp = require('gulp')
 var mocha = require('gulp-mocha')
 var runSequence = require('run-sequence')
+var config = require('./config.json')
 
 gulp.task('default', function (done) {
   runSequence('generate-assets',
+                'copy-easy-autocomplete',
                 'watch',
                 'server', done)
 })
@@ -29,6 +31,11 @@ gulp.task('copy-govuk-modules', [
   'copy-elements-sass',
   'copy-template'
 ])
+
+gulp.task('copy-easy-autocomplete', function () {
+  return gulp.src(['easy-autocomplete/easy-autocomplete.min.css', 'easy-autocomplete/jquery.easy-autocomplete.min.js', 'easy-autocomplete/index.js'])
+  .pipe(gulp.dest(config.paths.public))
+})
 
 gulp.task('watch', function (done) {
   runSequence('watch-sass',
